@@ -20,7 +20,7 @@ def main():
     for o, a in opts:
         if o in ("-h", "--help"):
             usage()
-            sys.exit(2)
+            sys.exit(0)
         elif o in ("-l", "--input_pcap_file_list"):
              input_pcap_file_list = a
         elif o in ("-o", "--output_pcap_file"):
