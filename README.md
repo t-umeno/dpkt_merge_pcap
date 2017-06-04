@@ -2,6 +2,6 @@
 merge PCAP file used by dpkt
 
 ## requirements
-* dpkt
-pip install dpkt
+* pip install dpkt
+
 
