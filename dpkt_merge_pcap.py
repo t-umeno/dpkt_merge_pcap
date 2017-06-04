@@ -33,9 +33,19 @@ def main():
 
     f = open(input_pcap_file_list)
     line = f.readline()
+    line = line.rstrip()
+    if len(line) > 0:
+        input_pcap = open(line,'rb')
+        pcr = dpkt.pcap.Reader(input_pcap)
+        for ts,buf in pcr:
+            pcw.writepkt(buf,ts)
+        input_pcap.close
 
     while line:
         line = f.readline()
+        line = line.rstrip()
+        if len(line) == 0:
+            continue
         input_pcap = open(line,'rb')
         pcr = dpkt.pcap.Reader(input_pcap)
         for ts,buf in pcr:
